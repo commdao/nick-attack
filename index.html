@@ -15,7 +15,8 @@
     <form>
         <button class="buttack">ATTACK</button>
         <button class="magtack">MAGIC</button>  
-        <div class="outcome"> YOU DID <span class="js_damage">3</span> DAMAGE!!!</div>
+        <div class="outcome"> YOU DID <span class="js_attack_damage">3</span> DAMAGE!!!</div>
+        <div class="outcome"> YOU DID <span class="js_magic_damage">3</span> DAMAGE!!!</div>
     </form>
 </div>
 
@@ -23,13 +24,14 @@
         // Get the things from the HTML / REF content
         var attackButton = document.querySelector(".buttack");
         var magicButton = document.querySelector(".magtack");
-        var damageField = document.querySelector(".js_damage");
 
+        var damageField = document.querySelector(".js_attack_damage");
+        var magicField = document.querySelector(".js_magic_damage")
         // Create Event Listeners to "listen" for the action
         attackButton.addEventListener("click", attack)
 
         // the item after "click", is it going to be the problem of it's re-used?
-        magicButton.addEventListener("click", attack)
+        magicButton.addEventListener("click", magicAttack)
         
         // Remember how to do a function first
         // function nickJoke() {
@@ -60,6 +62,11 @@
             var recentAttack = getRandoNumber();
             damageField.innerText = recentAttack
         } 
+        // Now we make the magic attack its own thing, but uh, still the same maths for now
+        function magicAttack() {
+            var recentMagicAttack = getRandoNumber();
+            magicField.innerText = recentMagicAttack
+        }
     </script>
 </body>
 </html>
