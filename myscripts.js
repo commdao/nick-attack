@@ -5,6 +5,9 @@
    var damageField = document.querySelector(".js_attack_damage");
    var magicField = document.querySelector(".js_magic_damage")
 
+   // We want to identify the starting enemy HP
+   var enemyHealth = document.querySelector(".enemy-health");
+   // Do we need an Event Listener for the Enemy Health?
 
 
    // Create Event Listeners to "listen" for the action
@@ -12,6 +15,8 @@
 
    // the item after "click", is it going to be the problem of it's re-used?
    magicButton.addEventListener("click", magicAttack)
+
+
    
    // Remember how to do a function first
    // function nickJoke() {
@@ -52,6 +57,23 @@
        }
        damageField.innerText = recentAttack
    } 
+
+   // OH GAH NICK ADDED ANOTHER VERSION, BUT I'M STILL LEARNING THE VERSION ABOVE
+   // function attack(){
+       // var recentAttack = getRandoNumber();
+       // recentAttack = multiplier(recentAttack)
+       //damageField.innerText = recentAttack
+   // }
+   // NICK SAYS: calls a f that gets a RandoNum and assigns it to the recentAttack variable
+   // Then, re-assigns that variable to the RESULT of the f Multiplier
+   // THEN, sets the damage field inner text to the damage dealt
+   // function multiplier(recentAttack){
+       // if (recentAttack == 5){
+           //recentAttack *= 4
+       //}
+       // return recentAttack
+   //}
+
    // Now we make the magic attack its own thing, let's give it a higher bonus
    function magicAttack() {
 
@@ -76,3 +98,9 @@
         }
        magicField.innerText = recentMagicAttack
    }
+
+   // How do we subtract the recentAttack / recentMagicAttack from the enemy HP? 
+    //  function takeDamage() {
+    //    var remainingHealth = enemyHealth - rececentAttack & recentMagicAttack
+   // something.innerText = remainingHealth
+   //}
