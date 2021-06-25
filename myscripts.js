@@ -2,8 +2,13 @@
    var attackButton = document.querySelector(".attack-button");
    var magicButton = document.querySelector(".magic-attack-button");
 
-   var damageField = document.querySelector(".js_attack_damage");
-   var magicField = document.querySelector(".js_magic_damage")
+   // not sure if it matters, but changing these var to const to follow an appendChild() tutorial
+   // these are now Parent Element
+   const damageField = document.querySelector(".js_attack_damage");
+   const magicField = document.querySelector(".js_magic_damage")
+
+
+
    // Create Event Listeners to "listen" for the action
    attackButton.addEventListener("click", attack)
 
@@ -44,7 +49,13 @@
    // var recentAttack = getRandoNumber() * (50% + 20%); DID NOT WORK
    // I don't think this math makes sense, but can I just simplify that to 70% then? (50 + 20) - NOPE
    // Oh is it because of something with the percentages? Do I just use the decimals then?
-       var recentAttack = getRandoNumber() * (.5 + .2);
+   // changing var to let
+       let recentAttack = getRandoNumber() * (.5 + .2);
+       // is this where I append?
+       // old result: damageField.innerText = recentAttack
+       // this didn't work: damageField.appendChild(recentAttack);
+       // this didn't work: damageField.textContent(recentAttack);
+       // these tutorials always use an ID with appendChild, but I don't think that should matter here?
        damageField.innerText = recentAttack
    } 
    // Now we make the magic attack its own thing, but uh, still the same maths for now
