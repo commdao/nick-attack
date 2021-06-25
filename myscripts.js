@@ -2,10 +2,8 @@
    var attackButton = document.querySelector(".attack-button");
    var magicButton = document.querySelector(".magic-attack-button");
 
-   // not sure if it matters, but changing these var to const to follow an appendChild() tutorial
-   // these are now Parent Element
-   const damageField = document.querySelector(".js_attack_damage");
-   const magicField = document.querySelector(".js_magic_damage")
+   var damageField = document.querySelector(".js_attack_damage");
+   var magicField = document.querySelector(".js_magic_damage")
 
 
 
@@ -31,9 +29,6 @@
    // Still don't fully understand RETURN, but it seems to make a better function than just "printing" via console.log
    function getRandoNumber() {
        // Nick said to make this simpler (removed the 420 joke), now build towards Crit Hit implementation
-       // Simplifying a Borderlands 3 crit damage vid: (base damage) * (percentage chance + multiplier)
-       // Example: 1000 * (100% + 20%), weird how guaranteed crits are in that game
-       // Oh, actually maybe we should keep this section the same and address the bonus in the attacks below
        return Math.floor(Math.random() * 10);
    }
 
@@ -45,23 +40,31 @@
    // Instead of designating a specific number, utilize the Random Number
    function attack() {
    // Realize you can set a new variable right in the middle of the function, as long as it's defined "soon"
-   // So do I just add the percentage chance and bonus multiplier, TRYING to say a 50% chance to do 20% extra
-   // var recentAttack = getRandoNumber() * (50% + 20%); DID NOT WORK
-   // I don't think this math makes sense, but can I just simplify that to 70% then? (50 + 20) - NOPE
-   // Oh is it because of something with the percentages? Do I just use the decimals then?
-   // changing var to let
-       let recentAttack = getRandoNumber() * (.5 + .2);
-       // is this where I append?
-       // old result: damageField.innerText = recentAttack
-       // this didn't work: damageField.appendChild(recentAttack);
-       // this didn't work: damageField.textContent(recentAttack);
-       // these tutorials always use an ID with appendChild, but I don't think that should matter here?
+       var recentAttack = getRandoNumber();
+            console.log(recentAttack)
+        // need help reviewing this value, are we counting 1 off like strings? (e.g. 0 is actually first)
+        // how to set multiple chances for the bonus? == 5, 7, 9) doesn't work
+        if (recentAttack == 5){
+            console.log('critical hit!')
+            recentAttack += 5
+        }
+        if (recentAttack == 0){
+            console.log('miss')
+        }
        damageField.innerText = recentAttack
    } 
-   // Now we make the magic attack its own thing, but uh, still the same maths for now
+   // Now we make the magic attack its own thing, let's give it a higher bonus
    function magicAttack() {
-    // the math is probably wrong, let's switch the percentages from above, lower chance but higher bonus
-    // is that the right way of thinking? I mean ... it's .7 in the end in both cases
-       var recentMagicAttack = getRandoNumber() * (.2 + .5);
+
+       var recentMagicAttack = getRandoNumber();
+            console.log(recentMagicAttack)
+        // still don't know how to set multiple crit chances
+        if (recentMagicAttack == 7){
+            console.log('KABOOM!')
+            recentMagicAttack += 21
+        }
+        if (recentMagicAttack == 0){
+            console.log('sad trombone noise')
+        }
        magicField.innerText = recentMagicAttack
    }
