@@ -48,6 +48,10 @@
             console.log('critical hit!')
             recentAttack += 5
         }
+        if (recentAttack == 7){
+            console.log('critical hit!')
+            recentAttack += 7
+        }
         if (recentAttack == 0){
             console.log('miss')
         }
@@ -58,10 +62,18 @@
 
        var recentMagicAttack = getRandoNumber();
             console.log(recentMagicAttack)
-        // still don't know how to set multiple crit chances
+        // using multiple if statements for now, Nick introduced Sets concept for the first time
         if (recentMagicAttack == 7){
             console.log('KABOOM!')
             recentMagicAttack += 21
+        }
+        if (recentMagicAttack == 8){
+            console.log('KABOOM!!')
+            recentMagicAttack += 25
+        }
+        if (recentMagicAttack == 9){
+            console.log('KABOOM!!!')
+            recentMagicAttack += 50
         }
         if (recentMagicAttack == 0){
             console.log('sad trombone noise')
