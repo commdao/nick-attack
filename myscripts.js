@@ -37,24 +37,19 @@
    //    damageField.innerText = '4'
    //}
 
+   // can I just put the critical choices variable right here? or is up top best practices?
+   var crticalChoice = new Set([5, 7, 9])
+
    // Instead of designating a specific number, utilize the Random Number
    function attack() {
    // Realize you can set a new variable right in the middle of the function, as long as it's defined "soon"
        var recentAttack = getRandoNumber();
-            console.log(recentAttack)
-        // need help reviewing this value, are we counting 1 off like strings? (e.g. 0 is actually first)
-        // how to set multiple chances for the bonus? == 5, 7, 9) doesn't work
-        if (recentAttack == 5){
-            console.log('critical hit!')
-            recentAttack += 5
-        }
-        if (recentAttack == 7){
-            console.log('critical hit!')
-            recentAttack += 7
-        }
-        if (recentAttack == 0){
-            console.log('miss')
-        }
+       if (crticalChoice.has(recentAttack)){
+           recentAttack += 5
+       }
+       if (recentAttack == 0){
+           console.log('miss')
+       }
        damageField.innerText = recentAttack
    } 
    // Now we make the magic attack its own thing, let's give it a higher bonus
@@ -63,6 +58,7 @@
        var recentMagicAttack = getRandoNumber();
             console.log(recentMagicAttack)
         // using multiple if statements for now, Nick introduced Sets concept for the first time
+        // utilized Sets for the attack above, but want to keep Magic as is to study, at capacity for concepts today
         if (recentMagicAttack == 7){
             console.log('KABOOM!')
             recentMagicAttack += 21
