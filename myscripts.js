@@ -27,7 +27,7 @@
    function getRandoNumber() {
        // Nick said to make this simpler (removed the 420 joke), now build towards Crit Hit implementation
        // Simplifying a Borderlands 3 crit damage vid: (base damage) * (percentage chance + multiplier)
-       // Example: 1000 * (100% * 20%), weird how guaranteed crits are in that game
+       // Example: 1000 * (100% + 20%), weird how guaranteed crits are in that game
        // Oh, actually maybe we should keep this section the same and address the bonus in the attacks below
        return Math.floor(Math.random() * 10);
    }
