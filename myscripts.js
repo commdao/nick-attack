@@ -26,6 +26,9 @@
    // Still don't fully understand RETURN, but it seems to make a better function than just "printing" via console.log
    function getRandoNumber() {
        // Nick said to make this simpler (removed the 420 joke), now build towards Crit Hit implementation
+       // Simplifying a Borderlands 3 crit damage vid: (base damage) * (percentage chance + multiplier)
+       // Example: 1000 * (100% * 20%), weird how guaranteed crits are in that game
+       // Oh, actually maybe we should keep this section the same and address the bonus in the attacks below
        return Math.floor(Math.random() * 10);
    }
 
@@ -37,11 +40,17 @@
    // Instead of designating a specific number, utilize the Random Number
    function attack() {
    // Realize you can set a new variable right in the middle of the function, as long as it's defined "soon"
-       var recentAttack = getRandoNumber();
+   // So do I just add the percentage chance and bonus multiplier, TRYING to say a 50% chance to do 20% extra
+   // var recentAttack = getRandoNumber() * (50% + 20%); DID NOT WORK
+   // I don't think this math makes sense, but can I just simplify that to 70% then? (50 + 20) - NOPE
+   // Oh is it because of something with the percentages? Do I just use the decimals then?
+       var recentAttack = getRandoNumber() * (.5 + .2);
        damageField.innerText = recentAttack
    } 
    // Now we make the magic attack its own thing, but uh, still the same maths for now
    function magicAttack() {
-       var recentMagicAttack = getRandoNumber();
+    // the math is probably wrong, let's switch the percentages from above, lower chance but higher bonus
+    // is that the right way of thinking? I mean ... it's .7 in the end in both cases
+       var recentMagicAttack = getRandoNumber() * (.2 + .5);
        magicField.innerText = recentMagicAttack
    }
