@@ -46,33 +46,39 @@
    var crticalChoice = new Set([5, 7, 9])
 
    // Instead of designating a specific number, utilize the Random Number
-   function attack() {
+   // function attack() {
    // Realize you can set a new variable right in the middle of the function, as long as it's defined "soon"
-       var recentAttack = getRandoNumber();
-       if (crticalChoice.has(recentAttack)){
-           recentAttack += 5
-       }
-       if (recentAttack == 0){
-           console.log('miss')
-       }
-       damageField.innerText = recentAttack
-   } 
+      // var recentAttack = getRandoNumber();
+      // if (crticalChoice.has(recentAttack)){
+      //     recentAttack += 5
+      // }
+      // if (recentAttack == 0){
+      //     console.log('miss')
+      // }
+      // damageField.innerText = recentAttack
+   // } 
 
    // OH GAH NICK ADDED ANOTHER VERSION, BUT I'M STILL LEARNING THE VERSION ABOVE
-   // function attack(){
-       // var recentAttack = getRandoNumber();
-       // recentAttack = multiplier(recentAttack)
-       //damageField.innerText = recentAttack
-   // }
+   var recentAttacks = []
+   
+   function attack(){
+       var recentAttack = getRandoNumber();
+       recentAttack = multiplier(recentAttack)
+       damageField.innerText = recentAttack
+       // Nick is on a roll, so let's just replicate for now
+       recentAttacks.push(recentAttack)
+       console.log(recentAttacks)
+       // now we can store all of the players attacks, he says
+   }
    // NICK SAYS: calls a f that gets a RandoNum and assigns it to the recentAttack variable
    // Then, re-assigns that variable to the RESULT of the f Multiplier
    // THEN, sets the damage field inner text to the damage dealt
-   // function multiplier(recentAttack){
-       // if (recentAttack == 5){
-           //recentAttack *= 4
-       //}
-       // return recentAttack
-   //}
+   function multiplier(recentAttack){
+       if (recentAttack == 5){
+           recentAttack *= 4
+       }
+       return recentAttack
+   }
 
    // Now we make the magic attack its own thing, let's give it a higher bonus
    function magicAttack() {
