@@ -8,13 +8,33 @@
         <button class="attack-button" type="button">ATTACK</button>
         <button class="magic-attack-button" type="button">MAGIC</button>
         <button class="item-button" type="button">ITEM</button>  
+        <button class="restart-button" type="button">RESTART</button>  
     </form>
 
-    <div class="outcome"> You did <span class="js_attack_damage">3</span> damage</div>
-    <div class="item-box"></div>
+    <div class="outcome"> 
+        You did <span class="js_attack_damage">3</span>
+        <span class="damage-type">magical</span>
+        <span>damage</span>
+    </div>
+
+    <div class="item-box">
+        <ul class="item-list">
+            <li class="item-literal">Potion</li>
+        </ul>
+    </div>
 </div>
 
 
 
 
 <script src="myscripts.js"></script>
+
+<style>
+    .item-box{
+        display: none;
+    }
+
+    .item-box.shown{
+        display: block;
+    }
+</style>
