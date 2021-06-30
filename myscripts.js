@@ -2,6 +2,7 @@
    var attackButton = document.querySelector(".attack-button");
    var magicButton = document.querySelector(".magic-attack-button");
    var autoButton = document.querySelector(".auto-attack-button");
+   var autoMagicButton = document.querySelector(".auto-magic-button");
    var itemButton = document.querySelector(".item-button");
    var itemBox = document.querySelector('.item-box');
 
@@ -22,6 +23,7 @@
    attackButton.addEventListener("click", attack)
    magicButton.addEventListener("click", magicAttack)
    autoButton.addEventListener("click", autoAttack)
+   autoMagicButton.addEventListener("click", autoMagic)
    itemButton.addEventListener("click", listItems)
    restartButton.addEventListener('click', restart)
 
@@ -118,6 +120,14 @@
             console.log('magic bonus failed')
         }
         return recentMagicAttack
+    }
+
+    // try to magic auto function
+    function autoMagic() {
+        for (let i = 1; enemyHealth >= 1; i++) {
+            magicAttack();
+            console.log('magic attack number', i)
+        }   
     }
 
     // creating simple function for MP cost ... where do I insert this?
