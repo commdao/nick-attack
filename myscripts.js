@@ -1,6 +1,7 @@
    // Get the things from the HTML / REF content
    var attackButton = document.querySelector(".attack-button");
    var magicButton = document.querySelector(".magic-attack-button");
+   var autoButton = document.querySelector(".auto-attack-button");
    var itemButton = document.querySelector(".item-button");
    var itemBox = document.querySelector('.item-box');
 
@@ -20,6 +21,7 @@
 
    attackButton.addEventListener("click", attack)
    magicButton.addEventListener("click", magicAttack)
+   autoButton.addEventListener("click", autoAttack)
    itemButton.addEventListener("click", listItems)
    restartButton.addEventListener('click', restart)
 
@@ -49,6 +51,23 @@
        damageType.innerText = 'physical';
        return enemyHealth
    }
+
+   // let's build the auto attack following the data above plus a loop
+   function autoAttack() {
+       if (enemyHealth <= 0){
+           return damageField.innerText = "enemy is already dead"
+       }
+       var recentAttack = getRandoNumber();
+       recentAttack = multiplier(recentAttack)
+       var newEnemyHp = (enemyHealth - recentAttack);
+       enemyHealth = newEnemyHp
+       enemyHealthField.innerText = newEnemyHp
+       damageField.innerText = recentAttack
+       recentAttacks.push(recentAttack)
+       damageType.innerText = 'physical';
+       return enemyHealth
+   }
+
 
    function restart(){
         location.reload();
