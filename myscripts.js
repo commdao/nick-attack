@@ -54,18 +54,21 @@
 
    // let's build the auto attack following the data above plus a loop
    function autoAttack() {
-       if (enemyHealth <= 0){
-           return damageField.innerText = "enemy is already dead"
+       for (let i = 0; i < 10; i++) {
+           attack();
        }
-       var recentAttack = getRandoNumber();
-       recentAttack = multiplier(recentAttack)
-       var newEnemyHp = (enemyHealth - recentAttack);
-       enemyHealth = newEnemyHp
-       enemyHealthField.innerText = newEnemyHp
-       damageField.innerText = recentAttack
-       recentAttacks.push(recentAttack)
-       damageType.innerText = 'physical';
-       return enemyHealth
+    //    if (enemyHealth <= 0){
+    //        return damageField.innerText = "enemy is already dead"
+    //    }
+    //    var recentAttack = getRandoNumber();
+    //    recentAttack = multiplier(recentAttack)
+    //    var newEnemyHp = (enemyHealth - recentAttack);
+    //    enemyHealth = newEnemyHp
+    //    enemyHealthField.innerText = newEnemyHp
+    //    damageField.innerText = recentAttack
+    //    recentAttacks.push(recentAttack)
+    //    damageType.innerText = 'physical';
+    //    return enemyHealth
    }
 
 
