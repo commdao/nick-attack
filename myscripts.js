@@ -54,8 +54,9 @@
 
    // let's build the auto attack following the data above plus a loop
    function autoAttack() {
-       for (let i = 0; i < 10; i++) {
+       for (let i = 0; enemyHealth > 1; i++) {
            attack();
+           console.log('attack number', i)
        }
     //    if (enemyHealth <= 0){
     //        return damageField.innerText = "enemy is already dead"
