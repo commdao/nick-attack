@@ -1,74 +1,49 @@
-   // Get the things from the HTML / REF content
-   var attackButton = document.querySelector(".attack-button");
-   var magicButton = document.querySelector(".magic-attack-button");
-   var itemButton = document.querySelector(".item-button");
-   var itemBox = document.querySelector('.item-box');
+// Get the things from the HTML / REF content
+   let restartButton = document.querySelector('.restart-button');
+   let attackButton = document.querySelector(".attack-button");
 
-   var restartButton = document.querySelector('.restart-button');
+   let enemyHealthField = document.querySelector(".enemy-health-field");
+   let enemyHealth = 100;
+   let enemyHealthBar= document.getElementById("health")
+   let damageCounter = []
+   let damageOutput = document.querySelector('.damage-output');
 
-   var damageField = document.querySelector(".js_attack_damage");
-   var damageType = document.querySelector('.damage-type');
-
-   var enemyHealthField = document.querySelector(".enemy-health-field");
-   var enemyHealth = 100;
+   let gameStarted = false;
+   let playerHealthField = document.querySelector('.player-health-field')
+   let playerHealth = 100;
 
    attackButton.addEventListener("click", attack)
-   magicButton.addEventListener("click", magicAttack)
-   itemButton.addEventListener("click", listItems)
    restartButton.addEventListener('click', restart)
 
-   function getRandoNumber() {
-       return Math.floor(Math.random() * 10);
+   function restart()  {
+    location.reload();
    }
 
-   var crticalChoice = new Set([5, 7, 9])
+   function startGame(){
+       gameStarted = true;
+   }
 
-   var recentAttacks = []
-
-   var items = ['potion','antidote','phoenix down']
+   function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+   }
    
-   function attack(){
-       if (enemyHealth <= 0){
-        return damageField.innerText = "enemy is already dead"
-       }
-       var recentAttack = getRandoNumber();
-       recentAttack = multiplier(recentAttack)
-       var newEnemyHp = (enemyHealth - recentAttack);
-       enemyHealth = newEnemyHp
-       enemyHealthField.innerText = newEnemyHp
-       damageField.innerText = recentAttack
-       recentAttacks.push(recentAttack)
-       damageType.innerText = 'physical';
-       return enemyHealth
+   function attack(target){
+       let finalDamage = getRandomNumber(player.level, player.atk)
+       damageCounter.push(finalDamage);
+       displayDamage(finalDamage)
+    //    dealDamage(target, finalDamage)
+       return finalDamage
    }
 
-   function restart(){
-        location.reload();
+   function displayDamage(num){
+    damageOutput.innerHTML =`<li>you did ${num} damage</li>` 
    }
 
-   function listItems() {
-       itemBox.classList.toggle('shown');
-   }
-
-   function multiplier(recentAttack){
-       if (recentAttack == 5){
-           recentAttack *= 4
-       } else {
-           console.log('multipier failed')
-       }
-       return recentAttack
-   }
-
-   function magicAttack() {
-        if (enemyHealth <= 0){
-            return damageField.innerText = "enemy is already dead"
-        }
-       var recentMagicAttack = getRandoNumber();
-            console.log(recentMagicAttack)
-        if (recentMagicAttack == 3){
-            recentMagicAttack += 21
-        }
-       damageType.innerText = 'magical';
-
-       damageField.innerText = recentMagicAttack
-   }
+    var player = {
+        name: '',
+        level: 1,
+        exp: 0,
+        atk: 5,
+        pwr: 5,
+        abilities: [],
+    }
