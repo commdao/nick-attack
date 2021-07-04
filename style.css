@@ -1,0 +1,11 @@
+.item-box{
+  display: none;
+}
+
+.item-box.shown{
+  display: block;
+}
+
+li {
+  list-style-type: none;
+}
