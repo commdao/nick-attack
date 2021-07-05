@@ -20,6 +20,11 @@
    // Seems like this will be a bit more complicated than subtracting enemy health
    // Yes, we will deduce from our starting total, but we also have to create values for each magic attack
 
+   // Set the accordion stuff - these probably need better naming conventions
+   const accordion = document.querySelector('.accordion');
+   const tipText = accordion.querySelector('li');
+   const heyTip = accordion.querySelector('.attention-tip');
+
    attackButton.addEventListener("click", attack)
    magicButton.addEventListener("click", magicAttack)
    autoButton.addEventListener("click", autoAttack)
@@ -102,6 +107,7 @@
         var recentMagicAttack = getRandoNumber();
         recentMagicAttack = magicMultiplier(recentMagicAttack)
         var newEnemyHp = (enemyHealth - recentMagicAttack);
+        enemyHealth = newEnemyHp
         enemyHealthField.innerText = newEnemyHp
         damageField.innertext = recentMagicAttack
         recentMagicAttacks.push(recentMagicAttack)
@@ -124,7 +130,7 @@
 
     // try to magic auto function
     function autoMagic() {
-        for (let i = 1; enemyHealth >= 1; i++) {
+        for (let i = 0; enemyHealth > 1; i++) {
             magicAttack();
             console.log('magic attack number', i)
         }   
