@@ -20,25 +20,23 @@ li {
   height: 50px;
 }
 
-.store_screen{
+
+.start_screen{
+  display: block;
+}
+.leaderboard_screen{
   display: none;
 }
-
+.battle_screen{
+  display: none;
+}
+.settings_screen{
+  display: none;
+}
 .home_screen{
   display: none;
 }
 
-.battle_screen{
-  display: none;
-}
-
-.leaderboard_screen{
-  display: none;
-}
-
-.settings_screen{
-  display: none;
-}
 
 th{
   text-align: left;

@@ -5,13 +5,16 @@
    let battleScreen = document.querySelector('.battle_screen');
    let settingsScreen = document.querySelector('.settings_screen');
 
+   let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen]
+
+
 // buttons
    let homeButton = document.querySelector('.home_button')
    let refreshLeaderboardButton = document.querySelector('.refresh_lb_button')
    let exitButton = document.querySelectorAll('.exit_button')
    let leaderboardButton = document.querySelectorAll('.leaderboard_button')
    let settingsButton = document.querySelectorAll('.settings_button');
-   let saveButton = document.querySelector('.save_button')
+//    let saveButton = document.querySelector('.save_button')
 
 // event listeners - routes
    homeButton.addEventListener('click', homeRoute);
@@ -20,8 +23,9 @@
    leaderboardButton.forEach(btn => btn.addEventListener('click', leaderboardRoute));
    exitButton.forEach(btn => btn.addEventListener('click', startRoute));
 
+
    // event listeners - menu actions
-   saveButton.addEventListener('click', saveGame);
+   //    saveButton.addEventListener('click', saveGame);
 
 // dynamic content
    let playerDisplay = document.querySelector('.player-display');
@@ -35,12 +39,8 @@
     }
 
     function startRoute(){
-    console.log('returned to start menu');
-    battleScreen.style.display = "none";
-    settingsScreen.style.display ="none";
-    leaderboardScreen.style.display = "none";
+    allScreens.forEach(screen => screen.style.display = "none");
     startScreen.style.display = "block";
-    homeScreen.style.display = "none";
     }
 
    function homeRoute(){
