@@ -9,3 +9,41 @@
 li {
   list-style-type: none;
 }
+
+.start_screen{
+  display: block;
+}
+
+.start_game{
+  display: block;
+  width: 150px;
+  height: 50px;
+}
+
+.store_screen{
+  display: none;
+}
+
+.home_screen{
+  display: none;
+}
+
+.battle_screen{
+  display: none;
+}
+
+.leaderboard_screen{
+  display: none;
+}
+
+.settings_screen{
+  display: none;
+}
+
+th{
+  text-align: left;
+}
+
+tr th{
+  width: 100px;
+}

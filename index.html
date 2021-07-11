@@ -1,30 +1,41 @@
-<div class="enemy-box">
-    <h1 class="enemy-health-field">100</h1>
-    <progress id="health" value="100" max="100"></progress>
+
+<div class="start_screen">
+    <h1>Stuff Clicker RUSH</h1>
+    <button class="home_button">Start Game</button>
+    <button class="leaderboard_button">Leaderboard</button>
+    <button class="settings_button">Settings</button>
+    <p>Version 1.2</p>
 </div>
 
-<ul class="damage-output">
-    <li></li>
-</ul>
-
-
-<div class="player-box">
-    <form>
-        <button class="attack-button" type="button">ATTACK</button>
-        <button class="magic-attack-button" type="button">MAGIC</button>
-        <button class="restart-button" type="button">RESTART</button>  
+<div class="settings_screen">
+    <form class="player-information">
+        <input type="text">Your Name</input>
+        <button for="player-iformation" class="save_player_button"></button>
+        
     </form>
-
-    <div class="outcome"> 
-        <p></p>
-    </div>
-
-    <div class="player-box">
-        <h1 class="player-health-field">100</h1>
-    </div>
+    <button class="exit_button">exit game</button>
 </div>
 
+<div class="home_screen">
+    <div class="player-display"></div>
+    <button class="leaderboard_button">Leaderboard</button>
+    <button class="exit_button">exit game</button>
+</div>
 
+<div class="battle_screen"></div>
+
+<div class="leaderboard_screen">
+    <button class="refresh_lb_button">Refresh</button>
+    <div class="leaderboard_display">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+            </table>
+    </div>
+    <button class="exit_button">exit</button>
+</div>
 
 
 <script src="myscripts.js"></script>
