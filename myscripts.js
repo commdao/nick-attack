@@ -4,130 +4,87 @@
    let leaderboardScreen = document.querySelector('.leaderboard_screen');
    let battleScreen = document.querySelector('.battle_screen');
    let settingsScreen = document.querySelector('.settings_screen');
-
    let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen]
 
+//  Player
+   let playerForm = document.querySelector('.player-form');
 
 // buttons
    let homeButton = document.querySelector('.home_button')
-   let refreshLeaderboardButton = document.querySelector('.refresh_lb_button')
    let exitButton = document.querySelectorAll('.exit_button')
    let leaderboardButton = document.querySelectorAll('.leaderboard_button')
    let settingsButton = document.querySelectorAll('.settings_button');
-//    let saveButton = document.querySelector('.save_button')
+   let createPlayerButton = document.querySelector('.save_player_button')
 
 // event listeners - routes
    homeButton.addEventListener('click', homeRoute);
-   refreshLeaderboardButton.addEventListener('click', refreshLeaderboard);
    settingsButton.forEach(btn => btn.addEventListener('click', settingsRoute));
    leaderboardButton.forEach(btn => btn.addEventListener('click', leaderboardRoute));
    exitButton.forEach(btn => btn.addEventListener('click', startRoute));
-
-
-   // event listeners - menu actions
-   //    saveButton.addEventListener('click', saveGame);
 
 // dynamic content
    let playerDisplay = document.querySelector('.player-display');
    let leaderboardDisplay = document.querySelector('.leaderboard_display');
 
-    var player = {
-    name: 'Steaks McGee',
-    level: 1,
-    exp: 0,
-    abilities: [],
+// initial localStorage load
+  window.onload = function() {
+      loadSaves();
+      console.log(localStorage.length, 'saves returned');
+  };
+      
+  function loadSaves() {
+    for(var i = 0; i<localStorage.length; i++) {
+      var retrieveFromLocalStorage = localStorage.getItem(localStorage.key(i));
+      var parsedLocalStorageData = JSON.parse(retrieveFromLocalStorage);
+      addPlayerToLb(parsedLocalStorageData); 
     }
+  }
 
+//  Player
+  function Player(name) {
+    this.name = name;
+    this.exp = 0;
+    this.id = Date.now();
+  }
+
+  function addPlayerToLb(player) {
+    var lbCard = document.createElement('li');
+    lbCard.innerHTML =`<li>${player.name}, ${player.exp}</li>`;
+    leaderboardDisplay.prepend(lbCard);
+  }
+
+  createPlayerButton.addEventListener('click', createPlayer);
+
+  function createPlayer(e){
+    e.preventDefault();
+    let playerName = document.querySelector('.player-name-input-field').value;
+    let newPlayer = new Player(playerName)
+    localStorage.setItem(newPlayer.id, JSON.stringify(newPlayer))
+    console.log('save complete. your challenge code is',  newPlayer.id)
+  }
+
+
+//  navigation
     function startRoute(){
     allScreens.forEach(screen => screen.style.display = "none");
     startScreen.style.display = "block";
     }
 
    function homeRoute(){
-    console.log('redirected to home');
-    battleScreen.style.display = "none";
-    settingsScreen.style.display ="none";
-    leaderboardScreen.style.display = "none";
-    startScreen.style.display = "none";
+    allScreens.forEach(screen => screen.style.display = "none");
     homeScreen.style.display = "block";
-    displayPlayerStats();
    }
 
    function leaderboardRoute(){
-    console.log('redirected to leaderboard');
-    settingsScreen.style.display ="none";
-    battleScreen.style.display ="none";
-    homeScreen.style.display = "none";
-    startScreen.style.display = "none";
+    allScreens.forEach(screen => screen.style.display = "none");
     leaderboardScreen.style.display = "block";
-    console.log('leaderboard updating...');
-    setTimeout(() => {
-            console.log('leaderboard updated');
-            displayLeaderboard();
-        }, 1500)
    };
 
-
     function settingsRoute(){
-    console.log('redirected to settings');
-    battleScreen.style.display ="none";
-    homeScreen.style.display = "none";
-    startScreen.style.display = "none";
-    leaderboardScreen.style.display = "none";
+    allScreens.forEach(screen => screen.style.display = "none");
     settingsScreen.style.display ="block";
     };
 
 
-//    Leaderboard 
 
-   function refreshLeaderboard(){
-    console.log('leaderboard updating...');
-    setTimeout(() => {
-        displayLeaderboard();
-    }, 1500)
-    console.log('leaderboard updated');
-   }
-
-   function displayLeaderboard(){
-
-   }
-
-//    Battle
-
-   function displayPlayerStats(){
-    playerDisplay.innerHTML = `<li>${player.name}</li><br/><li>${player.level}</li><br/><li>EXP: ${player.exp} </li>`
-   }
-
-//    settings
-
-function createPlayer(e){
-    e.preventDefault();
-    let playerName = playerName.value;
-    let mostRecentPlayer = new PlayerGenerator(playerName);
-    prependPlayer(mostRecentPlayer);
-    saveGame(mostRecentIdea);
-}
-
-function PlayerGenerator(player){
-  this.name = player;
-  this.exp = 0;
-  this.id = Date.now();
-}
-
-// 
-  function saveGame(player) {
-    var save = JSON.stringify(player);
-    localStorage.setItem(player.id, save);
-    console.log('save complete. your challenge code is',  player.id)
-  };
-
-  function loadSaves() {
-    for (var i = 0; localStorage.length; i++) {
-      var code = JSON.parse(localStorage.getItem(localStorage.key(i)));
-      prependIdea(code);
-    }
-  };
-
-
-//    player
 

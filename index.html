@@ -1,7 +1,8 @@
 
 <div class="start_screen">
-    <h1>Stuff Clicker RUSH</h1>
-    <button class="home_button">Start Game</button>
+    <h1>Nick Attack</h1>
+    <button class="home_button">New Game</button>
+    <button class="load_button">Load Game</button>
     <button class="leaderboard_button">Leaderboard</button>
     <button class="settings_button">Settings</button>
     <p>Version 1.2</p>
@@ -9,9 +10,8 @@
 
 <div class="settings_screen">
     <form class="player-information">
-        <input type="text">Your Name</input>
-        <button for="player-iformation" class="save_player_button"></button>
-        
+        <input type="player-name-input-field" class="player-name-input-field">Your Name</input>
+        <button for="player-information" class="save_player_button">submit</button>
     </form>
     <button class="exit_button">exit game</button>
 </div>
@@ -22,21 +22,12 @@
     <button class="exit_button">exit game</button>
 </div>
 
-<div class="battle_screen"></div>
-
 <div class="leaderboard_screen">
-    <button class="refresh_lb_button">Refresh</button>
-    <div class="leaderboard_display">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-            </table>
-    </div>
+    <div class="leaderboard_display"></div>
     <button class="exit_button">exit</button>
 </div>
 
+<div class="battle_screen"></div>
 
 <script src="myscripts.js"></script>
 <link rel="stylesheet" href="style.css">
