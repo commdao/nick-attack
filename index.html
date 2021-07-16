@@ -1,33 +1,51 @@
-
-<div class="start_screen">
-    <h1>Nick Attack</h1>
-    <button class="home_button">New Game</button>
-    <button class="load_button">Load Game</button>
-    <button class="leaderboard_button">Leaderboard</button>
-    <button class="settings_button">Settings</button>
-    <p>Version 1.2</p>
-</div>
-
-<div class="settings_screen">
-    <form class="player-information">
-        <input type="player-name-input-field" class="player-name-input-field">Your Name</input>
-        <button for="player-information" class="save_player_button">submit</button>
-    </form>
-    <button class="exit_button">exit game</button>
-</div>
-
-<div class="home_screen">
-    <div class="player-display"></div>
-    <button class="leaderboard_button">Leaderboard</button>
-    <button class="exit_button">exit game</button>
-</div>
-
-<div class="leaderboard_screen">
-    <div class="leaderboard_display"></div>
-    <button class="exit_button">exit</button>
-</div>
-
-<div class="battle_screen"></div>
-
-<script src="myscripts.js"></script>
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mobile">
+        <div class="start_screen">
+            <div class="top-half">
+                <h1>Nick Attack</h1>
+           
+                <button class="leaderboard_button">L</button>
+                <button class="settings_button">S</button>
+            </div>
+            <div class="bottom-third">
+                <button class="home_button">Start</button>
+                <p>Version 1.2</p>
+            </div>
+        </div>
+    
+        <div class="settings_screen">
+            <form class="player-information">
+                <input type="player-name-input-field" class="player-name-input-field">Your Name</input>
+                <button for="player-information" class="save_player_button">submit</button>
+            </form>
+            <button class="exit_button">exit game</button>
+        </div>
+    
+        <div class="home_screen">
+            <div class="player-display"></div>
+            <button class="play_button">Play</button>
+            <button class="leaderboard_button">Leaderboard</button>
+            <button class="settings_button">Settings</button>
+        </div>
+    
+        <div class="leaderboard_screen">
+            <h1>Leaderboard</h1>
+            <div class="leaderboard_display"></div>
+            <button class="exit_button">exit</button>
+        </div>
+    </div>
+    
+        <div class="battle_screen"></div>
+    <script src="myscripts.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</body>
+</html>

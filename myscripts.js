@@ -21,6 +21,7 @@
    settingsButton.forEach(btn => btn.addEventListener('click', settingsRoute));
    leaderboardButton.forEach(btn => btn.addEventListener('click', leaderboardRoute));
    exitButton.forEach(btn => btn.addEventListener('click', startRoute));
+   
 
 // dynamic content
    let playerDisplay = document.querySelector('.player-display');
@@ -34,9 +35,9 @@
       
   function loadSaves() {
     for(var i = 0; i<localStorage.length; i++) {
-      var retrieveFromLocalStorage = localStorage.getItem(localStorage.key(i));
-      var parsedLocalStorageData = JSON.parse(retrieveFromLocalStorage);
-      addPlayerToLb(parsedLocalStorageData); 
+      var fetchedData = localStorage.getItem(localStorage.key(i));
+      var parsedData = JSON.parse(fetchedData);
+      buildLeaderboard(parsedData); 
     }
   }
 
@@ -47,7 +48,7 @@
     this.id = Date.now();
   }
 
-  function addPlayerToLb(player) {
+  function buildLeaderboard(player) {
     var lbCard = document.createElement('li');
     lbCard.innerHTML =`<li>${player.name}, ${player.exp}</li>`;
     leaderboardDisplay.prepend(lbCard);
