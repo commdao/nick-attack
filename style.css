@@ -37,6 +37,20 @@ li {
   display: none;
   height: 100%;
 }
+/* let's style the leaderboard tables */
+.LeaderTable {
+  display: table;
+  width: 100%;
+}
+.TableRow {
+  display: table-row;
+}
+.TableCell, .TableHead {
+  display: table-cell;
+  padding: 3px 10px;
+  border: 1px solid #999999;
+}
+
 .battle_screen{
   display: none;
   height: 100%;
@@ -89,21 +103,23 @@ li {
   margin: 1rem 0
 }
 
-  /* move settings to the bottom left */
-.settings_button{
+  /* is this where I'd style button uniformity? */
+ .settings_button, .leaderboard_button, .exit_button {
   position: absolute;
-  bottom: 0;
-  left: 10px;
+  display: inline-block;
   width: 50px;
   border: 2px solid orange;
 }
+
+ /* move settings to the bottom left */
+ .settings_button {
+  bottom: 0;
+  left: 10px;
+ }
 /* move leaderboard to the bottom right */
 .leaderboard_button{
-  position: absolute;
   bottom: 0;
   right: 10px;
-  width: 50px;
-  border: 2px solid orange;
 }
 
 .home_screen{
