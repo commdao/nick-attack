@@ -73,7 +73,9 @@ li {
 .start_screen .home_button{
   font-size: 2rem;
   margin: auto;
-  border: 0;
+  /* space for the start button should have a wider clickspace, maybe not this wide though*/
+  border: 3px solid green;
+  padding: 2em;
   border-radius: 35px;
   background-color: transparent;
   display: block;
@@ -86,6 +88,24 @@ li {
   font-size: 2rem;
   margin: 1rem 0
 }
+
+  /* move settings to the bottom left */
+.settings_button{
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 50px;
+  border: 2px solid orange;
+}
+/* move leaderboard to the bottom right */
+.leaderboard_button{
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 50px;
+  border: 2px solid orange;
+}
+
 .home_screen{
   display: none;
 }
