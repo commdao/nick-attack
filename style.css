@@ -40,7 +40,8 @@ li {
 /* let's style the leaderboard tables */
 .LeaderTable {
   display: table;
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
 }
 .TableRow {
   display: table-row;
