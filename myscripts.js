@@ -49,9 +49,32 @@
   }
 
   function buildLeaderboard(player) {
-    var lbCard = document.createElement('li');
-    lbCard.innerHTML =`<li>${player.name}, ${player.exp}</li>`;
-    leaderboardDisplay.prepend(lbCard);
+    //NICK'S VERSION
+    // var lbCard = document.createElement('li');
+    // lbCard.innerHTML =`<li>${player.name}, ${player.exp}</li>`;
+    // leaderboardDisplay.prepend(lbCard);
+
+    // ATTEMPT #1, TABLES GET CONFUSING FAST
+    // not working yet, but I think the process makes sense
+
+    // var tableCell, tableHeader, tableRow, t;
+    // t = document.createElement('table');
+    // tableRow = t.insertRow(0); 
+    // tableCell = tableRow.insertCell(0);
+    // tableCell.innerHTML = 'Name';
+    // tableCell = tableRow.insertCell(1);
+    // tableCell.innerHTML = 'Score';
+    // tableRow = t.insertRow(1);
+    // tableCell = tableRow.insertCell(0);
+    // tableCell.innerHTML = NICK;
+    // tableCell = tableRow.insertCell(1);
+    // tableCell.innerHTML = SCORE;
+    // document.getElementById("buildLeaderboard").appendChild(t);
+
+    // ATTEMPT #2, GOING FOR SOMETHING SIMPLE
+    // This would be more like if the player got a prompt "Do you want to submit your score?"
+    var addScore = document.getElementById("LeaderTable");
+    addScore.insertRow(0);
   }
 
   createPlayerButton.addEventListener('click', createPlayer);
