@@ -49,13 +49,13 @@
   }
 
   function buildLeaderboard(player) {
-    var lbRow = document.createElement('tr');
-    lbRow.innerHTML =`
+    var lbCard = document.createElement('tr');
+    lbCard.innerHTML =`
         <td>${player.name}</td>
         <td>${player.exp}</td>
         <td><button class="addfriend_button">ADD</button></td>
       `;
-    leaderboardDisplay.append(lbRow);
+    leaderboardDisplay.append(lbCard);
   
   }
 

@@ -27,7 +27,6 @@ li {
   height: 50px;
 }
 
-
 .start_screen{
   display: block;
   height: 100%;
@@ -36,20 +35,6 @@ li {
 .leaderboard_screen{
   display: none;
   height: 100%;
-}
-/* let's style the leaderboard tables */
-.LeaderTable {
-  display: table;
-  width: 90%;
-  margin-left: 5%;
-}
-.TableRow {
-  display: table-row;
-}
-.TableCell, .TableHead {
-  display: table-cell;
-  padding: 3px 10px;
-  border: 1px solid #999999;
 }
 
 .battle_screen{
@@ -78,10 +63,16 @@ li {
 
 .leaderboard_screen table td{
   margin: 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .leaderboard_screen tr td:nth-child(3){
   text-align: right;
+}
+
+.start_screen{
+  height: 950px;
 }
 
 
@@ -110,29 +101,25 @@ li {
 .start_screen .home_button{
   font-size: 2rem;
   margin: auto;
-  /* space for the start button should have a wider clickspace, maybe not this wide though*/
-  border: 3px solid green;
-  padding: 2em;
-  border-radius: 35px;
   background-color: transparent;
-  display: block;
-  margin: auto;
-  left: 0;
-  right: 0;
+  border: none; 
+  border: 1px solid red;
+  width: 100%;
+  height: 800
 }
 
 .start_screen .leaderboard_button, .start_screen .settings_button{
   font-size: 2rem;
-  margin: 1rem 0
+  margin: 1rem 0;
 }
 
   /* is this where I'd style button uniformity? */
  .settings_button, .leaderboard_button, .exit_button {
-  position: absolute;
-  display: inline-block;
-  width: 50px;
-  border: 2px solid orange;
+  font-size: 3rem;
+  margin: auto;
+  padding: 1rem 2rem;
 }
+
 
  /* move settings to the bottom left */
  .settings_button {
@@ -164,9 +151,8 @@ body{
 
 .mobile{
   border: 1px solid red;
-  min-height: 100vh;
+  height: 950px;
   max-width: 450px;
-  max-height: 750px;
   position: relative;
   margin: auto;
 }
