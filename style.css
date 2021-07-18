@@ -1,15 +1,16 @@
-*{
+* {
   padding: 0;
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   box-sizing: border-box;
 }
 
-.item-box{
+.item-box {
   display: none;
 }
 
-.item-box.shown{
+.item-box.shown {
   display: block;
 }
 
@@ -17,11 +18,11 @@ li {
   list-style-type: none;
 }
 
-.start_screen{
+.start_screen {
   display: block;
 }
 
-.start_game{
+.start_game {
   display: block;
   width: 150px;
   height: 50px;
@@ -32,16 +33,16 @@ li {
   height: 100%;
   text-align: center;
 }
-.leaderboard_screen{
+.leaderboard_screen {
   display: none;
   height: 100%;
 }
 
-.battle_screen{
+.battle_screen {
   display: none;
   height: 100%;
 }
-.settings_screen{
+.settings_screen {
   display: none;
   text-align: center;
   height: 100%;
@@ -84,13 +85,12 @@ li {
   height: 100%;
 }
 
-.start_screen button{
+.start_screen button {
   font-size: 7rem;
   text-align: center;
 }
 
-
-.bottom-third{
+.bottom-third {
   bottom: 5rem;
   text-align: center;
   position: absolute;
@@ -98,7 +98,7 @@ li {
   width: 100%;
 }
 
-.start_screen .home_button{
+.start_screen .home_button {
   font-size: 2rem;
   margin: auto;
   background-color: transparent;
@@ -111,7 +111,8 @@ li {
   height: 400px;
 }
 
-.start_screen .leaderboard_button, .start_screen .settings_button{
+.start_screen .leaderboard_button,
+.start_screen .settings_button {
   font-size: 2rem;
   margin: 1rem 0;
 }
@@ -128,31 +129,30 @@ li {
  .settings_button {
   bottom: 0;
   left: 10px;
- }
+}
 /* move leaderboard to the bottom right */
-.leaderboard_button{
+.leaderboard_button {
   bottom: 0;
   right: 10px;
 }
 
-.home_screen{
+.home_screen {
   display: none;
 }
 
-
-th{
+th {
   text-align: left;
 }
 
-tr th{
+tr th {
   width: 100px;
 }
 
-body{
+body {
   height: 100vh;
 }
 
-.mobile{
+.mobile {
   border: 1px solid red;
   min-height: 950px;
   max-width: 450px;

@@ -60,6 +60,17 @@
     this.lastLogin = '';
   }
 
+  function buildLeaderboard(player) {
+    var lbCard = document.createElement('tr');
+    lbCard.innerHTML =`
+    <td>${player.name}</td>
+    <td>${player.exp}</td>
+    <td><button class="addfriend_button">ADD</button></td>
+    `;
+    leaderboardDisplay.append(lbCard);
+  }
+
+  createPlayerButton.addEventListener('click', createPlayer);
   function createPlayer(e){
     e.preventDefault();
     let playerName = document.querySelector('.player-name-input-field').value;
@@ -102,3 +113,10 @@ function changeRoute(route){
     route.style.display = "block";
   }
 }
+    settingsScreen.style.display ="block";
+    };
+
+    function battleRoute() {
+    allScreens.forEach(screen => screen.style.display ="none");
+    battleScreen.style.display = "block";
+    }
