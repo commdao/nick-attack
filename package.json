@@ -16,7 +16,5 @@
     "url": "https://github.com/commdao/nick-attack/issues"
   },
   "homepage": "https://github.com/commdao/nick-attack#readme",
-  "dependencies": {
-    "three": "^0.130.0"
-  }
+  "dependencies": {}
 }
