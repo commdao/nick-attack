@@ -118,20 +118,22 @@ li {
 }
 
   /* is this where I'd style button uniformity? */
- .settings_button, .leaderboard_button, .exit_button {
-  font-size: 3rem;
-  margin: auto;
+ .messages_button, .friends_button, .notifications_button {
+  font-size: 1rem;
+  margin: 1rem 0;
   padding: 1rem 2rem;
+  display: flex;
+  align-items: left;
 }
 
 
  /* move settings to the bottom left */
- .settings_button {
+ .home_screen .settings_button {
   bottom: 0;
   left: 10px;
 }
 /* move leaderboard to the bottom right */
-.leaderboard_button {
+.home_screen .leaderboard_button {
   bottom: 0;
   right: 10px;
 }
