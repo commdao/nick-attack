@@ -19,7 +19,8 @@
    let battleButton = document.querySelector('.battle_button');
 
 // event listeners - routes
-   homeButton.addEventListener('click', changeRoute(homeScreen));
+   homeButton.addEventListener('click', checkIfLoggedIn);
+
    settingsButton.forEach(btn => btn.addEventListener('click', changeRoute(settingsScreen)));
    leaderboardButton.forEach(btn => btn.addEventListener('click', changeRoute(leaderboardScreen)));
    exitButton.forEach(btn => btn.addEventListener('click', changeRoute(startScreen)));
@@ -33,6 +34,7 @@
    let leaderboardDisplay = document.querySelector('.leaderboard_display');
 
    let today = new Date();
+   let loggedIn = false;
 
 // initial localStorage load
   window.onload = function() {
@@ -45,6 +47,16 @@
       var fetchedData = localStorage.getItem(localStorage.key(i));
       var parsedData = JSON.parse(fetchedData);
       buildLeaderboard(parsedData); 
+    }
+  }
+  
+  function checkIfLoggedIn(){
+    if (loggedIn){
+      console.log('logged in good job')
+      changeRoute(startScreen)
+    } else {
+      changeRoute(homeScreen)
+      console.log('not logged In bad job');
     }
   }
 
@@ -77,6 +89,7 @@
     let newPlayer = new Player(playerName)
     localStorage.setItem(newPlayer.id, JSON.stringify(newPlayer))
     console.log('save complete. your challenge code is',  newPlayer.id)
+    loggedIn = true;
   }
 
   function addFriend(player){
@@ -113,10 +126,3 @@ function changeRoute(route){
     route.style.display = "block";
   }
 }
-    settingsScreen.style.display ="block";
-    };
-
-    function battleRoute() {
-    allScreens.forEach(screen => screen.style.display ="none");
-    battleScreen.style.display = "block";
-    }
