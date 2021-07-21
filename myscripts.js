@@ -4,7 +4,11 @@
    let leaderboardScreen = document.querySelector('.leaderboard_screen');
    let battleScreen = document.querySelector('.battle_screen');
    let settingsScreen = document.querySelector('.settings_screen');
-   let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen, battleScreen]
+   let messagesScreen = document.querySelector('.messages_screen');
+   let friendsScreen = document.querySelector('.friends_screen');
+   let notificationsScreen = document.querySelector('.notifications_screen');
+   let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen, battleScreen, messagesScreen, 
+    friendsScreen, notificationsScreen]
 
    function changeRoute(route){
     return function(e){
@@ -26,6 +30,9 @@
    let settingsButton = document.querySelectorAll('.settings_button');
    let createPlayerButton = document.querySelector('.save_player_button')
    let battleButton = document.querySelector('.battle_button');
+   let messagesButton = document.querySelector('.messages_button');
+   let friendsButton = document.querySelector('.friends_button');
+   let notificationsButton = document.querySelector('.notifications_button');
 
 // event listeners - routes
    homeButton.addEventListener('click', checkIfLoggedIn);
@@ -34,7 +41,9 @@
    leaderboardButton.forEach(btn => btn.addEventListener('click', changeRoute(leaderboardScreen)));
    exitButton.forEach(btn => btn.addEventListener('click', changeRoute(startScreen)));
    battleScreen.addEventListener('click', changeRoute(battleScreen));
-
+   messagesButton.addEventListener('click', changeRoute(messagesScreen));
+   friendsButton.addEventListener('click', changeRoute(friendsScreen));
+   notificationsButton.addEventListener('click', changeRoute(notificationsScreen));
 //  event listeners - player
     createPlayerButton.addEventListener('click', createPlayer);
 
