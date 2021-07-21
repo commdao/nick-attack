@@ -10,6 +10,15 @@
    let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen, battleScreen, messagesScreen, 
     friendsScreen, notificationsScreen]
 
+   function changeRoute(route){
+    return function(e){
+      e.preventDefault();
+      allScreens.forEach(screen => screen.style.display = "none");
+      route.style.display = "block";
+    }
+  }
+  
+
 //  Player
 
    let playerForm = document.querySelector('.player-form');
@@ -26,7 +35,8 @@
    let notificationsButton = document.querySelector('.notifications_button');
 
 // event listeners - routes
-   homeButton.addEventListener('click', changeRoute(homeScreen));
+   homeButton.addEventListener('click', checkIfLoggedIn);
+
    settingsButton.forEach(btn => btn.addEventListener('click', changeRoute(settingsScreen)));
    leaderboardButton.forEach(btn => btn.addEventListener('click', changeRoute(leaderboardScreen)));
    exitButton.forEach(btn => btn.addEventListener('click', changeRoute(startScreen)));
@@ -42,6 +52,7 @@
    let leaderboardDisplay = document.querySelector('.leaderboard_display');
 
    let today = new Date();
+   let loggedIn = false;
 
 // initial localStorage load
   window.onload = function() {
@@ -54,6 +65,18 @@
       var fetchedData = localStorage.getItem(localStorage.key(i));
       var parsedData = JSON.parse(fetchedData);
       buildLeaderboard(parsedData); 
+    }
+  }
+  
+  function checkIfLoggedIn(){
+    if (loggedIn){
+      console.log('logged in good job')
+      // this route should take you to the home screen as a logged in user
+      changeRoute(startScreen)
+    } else {
+      console.log('not logged In bad job');
+      // this route should take you to the battle screen as a logged out user
+      changeRoute(homeScreen)
     }
   }
 
@@ -86,6 +109,7 @@
     let newPlayer = new Player(playerName)
     localStorage.setItem(newPlayer.id, JSON.stringify(newPlayer))
     console.log('save complete. your challenge code is',  newPlayer.id)
+    loggedIn = true;
   }
 
   function addFriend(player){
@@ -112,22 +136,3 @@
       `;
     leaderboardDisplay.append(lbCard);
   }
-
-//  navigation
-
-function changeRoute(route){
-  return function(e){
-    e.preventDefault();
-    allScreens.forEach(screen => screen.style.display = "none");
-    route.style.display = "block";
-  }
-}
-    // settingsScreen.style.display ="block";
-        // };
-        // I don't know what that is up there^^^, but if we don't comment it, it breaks the routes
-
-
-    function battleRoute() {
-    allScreens.forEach(screen => screen.style.display ="none");
-    battleScreen.style.display = "block";
-    }
