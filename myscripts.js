@@ -6,6 +6,15 @@
    let settingsScreen = document.querySelector('.settings_screen');
    let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen, battleScreen]
 
+   function changeRoute(route){
+    return function(e){
+      e.preventDefault();
+      allScreens.forEach(screen => screen.style.display = "none");
+      route.style.display = "block";
+    }
+  }
+  
+
 //  Player
 
    let playerForm = document.querySelector('.player-form');
@@ -53,10 +62,12 @@
   function checkIfLoggedIn(){
     if (loggedIn){
       console.log('logged in good job')
+      // this route should take you to the home screen as a logged in user
       changeRoute(startScreen)
     } else {
-      changeRoute(homeScreen)
       console.log('not logged In bad job');
+      // this route should take you to the battle screen as a logged out user
+      changeRoute(homeScreen)
     }
   }
 
@@ -116,13 +127,3 @@
       `;
     leaderboardDisplay.append(lbCard);
   }
-
-//  navigation
-
-function changeRoute(route){
-  return function(e){
-    e.preventDefault();
-    allScreens.forEach(screen => screen.style.display = "none");
-    route.style.display = "block";
-  }
-}
