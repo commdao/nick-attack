@@ -10,13 +10,7 @@
    let allScreens = [startScreen, homeScreen, leaderboardScreen, settingsScreen, battleScreen, messagesScreen, 
     friendsScreen, notificationsScreen]
 
-   function changeRoute(route){
-    return function(e){
-      e.preventDefault();
-      allScreens.forEach(screen => screen.style.display = "none");
-      route.style.display = "block";
-    }
-  }
+
   
 
 //  Player
@@ -52,15 +46,14 @@
    let leaderboardDisplay = document.querySelector('.leaderboard_display');
 
    let today = new Date();
-   let loggedIn = false;
+   let loggedIn = true;
 
 // initial localStorage load
   window.onload = function() {
-    loadSaves();
-    console.log('Hi jon');
+    loadLeaderboard();
   };
       
-  function loadSaves() {
+  function loadLeaderboard() {
     for(var i = 0; i<localStorage.length; i++) {
       var fetchedData = localStorage.getItem(localStorage.key(i));
       var parsedData = JSON.parse(fetchedData);
@@ -68,15 +61,12 @@
     }
   }
   
-  function checkIfLoggedIn(){
-    if (loggedIn){
-      console.log('logged in good job')
-      // this route should take you to the home screen as a logged in user
-      changeRoute(startScreen)
+  function checkIfLoggedIn(e){
+    e.preventDefault();
+    if(loggedIn){
+      changeRoute(homeScreen)(e);
     } else {
-      console.log('not logged In bad job');
-      // this route should take you to the battle screen as a logged out user
-      changeRoute(homeScreen)
+      console.log('else')
     }
   }
 
@@ -103,12 +93,13 @@
   }
 
   createPlayerButton.addEventListener('click', createPlayer);
+  // we need to add this createPlayer function to the post-game screen of the tutorial, and add a load character screen in it's place
   function createPlayer(e){
     e.preventDefault();
     let playerName = document.querySelector('.player-name-input-field').value;
     let newPlayer = new Player(playerName)
     localStorage.setItem(newPlayer.id, JSON.stringify(newPlayer))
-    console.log('save complete. your challenge code is',  newPlayer.id)
+
     loggedIn = true;
   }
 
@@ -122,10 +113,12 @@
   // I think we need a function to save the player
   // and then a function to load the player
 
-  // function savePlayer(player) {
-  //   localStorage.setItem(player.id, JSON.stringify(player));
-  //  console.log('save complete');
-  //    
+  function savePlayer(player) {
+    if(!loggedIn){return}
+    console.log('beginning save')
+    localStorage.setItem(player.id, JSON.stringify(player));
+    console.log('save complete, thanks for playing', player);
+  }
 
   function buildLeaderboard(player) {
     var lbCard = document.createElement('tr');
@@ -135,4 +128,13 @@
         <td><button class="addfriend_button">ADD</button></td>
       `;
     leaderboardDisplay.append(lbCard);
+  }
+
+  function changeRoute(route){
+    return function(e){
+      e.preventDefault();
+      console.log('route changed', route);
+      allScreens.forEach(screen => screen.style.display = "none");
+      route.style.display = "block";
+    }
   }
