@@ -52,6 +52,37 @@ li {
   padding: 1rem;
 }
 
+.toast{
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 2px;
+  height: 70px;
+  width: 325px;
+  position: fixed;
+  top: -80px;
+  background-color: white;
+  z-index: 5;
+  right:0;
+  left: 0;
+  margin: auto;
+  transition: .5s;
+  opacity: 1;
+  padding-left: 1rem;
+}
+
+/* .toast:hover{
+  transform: translateY(50px);
+  opacity: 1;
+  box-shadow: 0px 7px rgba(128, 128, 128, 0.616);
+} */
+
+.toast.onScreen{
+  transform: translateY(120px);
+  opacity: 1;
+  box-shadow: 0px 7px rgba(128, 128, 128, 0.616);
+}
+
 .leaderboard_screen h1{
   text-align: center;
 }
@@ -82,7 +113,6 @@ li {
   text-align: center;
   font-weight: 300;
   margin-top: 5rem;
-  height: 100%;
 }
 
 .start_screen button {
@@ -126,7 +156,6 @@ li {
   align-items: left;
 }
 
-
  /* move settings to the bottom left */
  .home_screen .settings_button {
   bottom: 0;
@@ -156,8 +185,12 @@ body {
 
 .mobile {
   border: 1px solid red;
-  min-height: 950px;
+  height: 950px;
   max-width: 450px;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
+}
+
+.debug-window{
+  
 }
