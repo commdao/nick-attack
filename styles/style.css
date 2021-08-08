@@ -20,10 +20,17 @@ li {
 
 .start_screen {
   display: block;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.start_screen h1{
+  transform: translateY(120px);
 }
 
 .start_game {
   display: block;
+  border: 1px solid red;
   width: 150px;
   height: 50px;
 }
@@ -32,7 +39,9 @@ li {
   display: block;
   height: 100%;
   text-align: center;
+  font-size: 2rem;
 }
+
 .leaderboard_screen {
   display: none;
   height: 100%;
@@ -50,25 +59,46 @@ li {
 
 .leaderboard_screen{
   padding: 1rem;
+  display: none;
 }
+
 
 .toast{
   display: flex;
   align-items: center;
-  border: 1px solid black;
   border-radius: 2px;
   height: 70px;
   width: 325px;
   position: fixed;
   top: -80px;
-  background-color: white;
   z-index: 5;
   right:0;
   left: 0;
   margin: auto;
   transition: .5s;
-  opacity: 1;
+  opacity: .5;
+  background-color: rgb(22, 22, 22);
+  border-radius: 35px;
   padding-left: 1rem;
+  color: white;
+}
+
+.modal{
+  height:200px;
+  border: 1px solid red;
+  width: 80%;
+  display: none;
+  position: fixed;
+  opacity: 0;
+  transition: .4s;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.modal.onScreen{
+  opacity: 1;
 }
 
 /* .toast:hover{
@@ -80,7 +110,6 @@ li {
 .toast.onScreen{
   transform: translateY(120px);
   opacity: 1;
-  box-shadow: 0px 7px rgba(128, 128, 128, 0.616);
 }
 
 .leaderboard_screen h1{
@@ -112,7 +141,6 @@ li {
   font-size: 3rem;
   text-align: center;
   font-weight: 300;
-  margin-top: 5rem;
 }
 
 .start_screen button {
@@ -120,8 +148,7 @@ li {
   text-align: center;
 }
 
-.bottom-third {
-  bottom: 5rem;
+.bottom-half {
   text-align: center;
   position: absolute;
   bottom: 8rem;
@@ -185,7 +212,7 @@ body {
 
 .mobile {
   border: 1px solid red;
-  height: 950px;
+  height: 811px;
   max-width: 450px;
   position: relative;
   margin: 0 auto;
