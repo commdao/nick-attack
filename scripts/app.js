@@ -25,7 +25,8 @@ import * as Leaderboard from './lib/leaderboard.js'
    let createPlayerButton = document.querySelector('.save_player_button')
 
 // event listeners - routes
-   startButton.addEventListener('click', startGame);
+   // startButton.addEventListener('click', startGame);
+   startButton.addEventListener('click', changeRoute(homeScreen));
    settingsButton.forEach(btn => btn.addEventListener('click', changeRoute(settingsScreen)));
    leaderboardButton.forEach(btn => btn.addEventListener('click', changeRoute(leaderboardScreen)));
    exitButton.forEach(btn => btn.addEventListener('click', changeRoute(startScreen)));
@@ -51,7 +52,8 @@ import * as Leaderboard from './lib/leaderboard.js'
   }
 
   function startGame(){
-    
+    console.log('the click is working')
+    changeRoute(homeScreen);
   }
 
 
@@ -75,3 +77,12 @@ import * as Leaderboard from './lib/leaderboard.js'
       route.style.display = "block";
     }
   }
+
+  let darkmodeButton = document.querySelector('.darkmode-button');
+  let darkFarts = document.querySelector('body');
+  darkmodeButton.addEventListener('click', toggleDarkMode)
+
+  function toggleDarkMode() {
+    darkFarts.classList.toggle('dark');
+  }
+

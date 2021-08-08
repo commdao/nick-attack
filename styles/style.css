@@ -24,7 +24,7 @@ li {
   flex-direction: column;
 }
 
-.start_screen h1{
+.start_screen h1 {
   transform: translateY(120px);
 }
 
@@ -62,8 +62,7 @@ li {
   display: none;
 }
 
-
-.toast{
+.toast {
   display: flex;
   align-items: center;
   border-radius: 2px;
@@ -72,32 +71,32 @@ li {
   position: fixed;
   top: -80px;
   z-index: 5;
-  right:0;
+  right: 0;
   left: 0;
   margin: auto;
-  transition: .5s;
-  opacity: .5;
+  transition: 0.5s;
+  opacity: 0.5;
   background-color: rgb(22, 22, 22);
   border-radius: 35px;
   padding-left: 1rem;
   color: white;
 }
 
-.modal{
-  height:200px;
+.modal {
+  height: 200px;
   border: 1px solid red;
   width: 80%;
   display: none;
   position: fixed;
   opacity: 0;
-  transition: .4s;
+  transition: 0.4s;
   bottom: 30px;
   left: 0;
   right: 0;
   margin: auto;
 }
 
-.modal.onScreen{
+.modal.onScreen {
   opacity: 1;
 }
 
@@ -107,7 +106,7 @@ li {
   box-shadow: 0px 7px rgba(128, 128, 128, 0.616);
 } */
 
-.toast.onScreen{
+.toast.onScreen {
   transform: translateY(120px);
   opacity: 1;
 }
@@ -182,13 +181,8 @@ li {
   align-items: left;
 }
 
-<<<<<<< HEAD:style.css
 /* move settings to the bottom left */
 .home_screen .settings_button {
-=======
- /* move settings to the bottom left */
- .home_screen .settings_button {
->>>>>>> 00cb652bd8cfd9075fab8dfb46231466c21108f0:styles/style.css
   bottom: 0;
   left: 10px;
 }
@@ -212,6 +206,14 @@ tr th {
 
 body {
   height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+body.dark {
+  height: 100vh;
+  background-color: black;
+  color: white;
 }
 
 .mobile {
@@ -222,6 +224,5 @@ body {
   margin: 0 auto;
 }
 
-.debug-window{
-  
+.debug-window {
 }
