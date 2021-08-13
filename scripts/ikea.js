@@ -119,7 +119,7 @@ const characterData = {
           '#',
           '#', 
         ],
-        name: 'Trysel',
+        name: 'Trysil',
         img: URL(''),
         rarity: '5'
         type: 'wardrobe',
